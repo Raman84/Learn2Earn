@@ -21,6 +21,17 @@ def miscellaneous():
     address = web3.toChecksumAddress(L2E_WALLET_ADDRESS)
     balance=contract.functions.balanceOf(address).call()
     print(web3.fromWei(balance, "ether"))
+    
+def send_learn_tokens(to_address):
+    to_address = Web3.toChecksumAddress(to_address)
+    ftm = "https://rpc.ftm.tools"
+    web3 = Web3(Web3.HTTPProvider(ftm))
+    contract = web3.eth.contract(address=CONTRACT_ADDRESS, abi=ABI)
+    transaction = contract.functions.transfer(to_address, 100000000000000000000).buildTransaction({'chainId': 250, 'gas':2000000, 'nonce': web3.eth.getTransactionCount(L2E_WALLET_ADDRESS)})
+    signed_txn = web3.eth.account.signTransaction(transaction, PRIVATE_KEY)
+    txn_hash = web3.eth.sendRawTransaction(signed_txn.rawTransaction)
+    print(txn_hash)
+    return txn_hash
 
 def send_learn_tokens(to_address):
     to_address = Web3.toChecksumAddress(to_address)
