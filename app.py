@@ -101,5 +101,17 @@ def ethereum_2():
 def ethereum_3():
     return render_template("Ethereum_3.html")
 
+@app.route('/ethereum_3', methods=["GET", "POST"])
+def ethereum_3():
+    return render_template("Ethereum_3.html")
+
+@app.route('/ethereum_3', methods=["GET", "POST"])
+def ethereum_3():
+    return render_template("Ethereum_3.html")
+
+@app.route('/ethereum_3', methods=["GET", "POST"])
+def ethereum_3():
+    return render_template("Ethereum_3.html")
+
 if(__name__ == "__main__"):
     app.run(debug=True)
