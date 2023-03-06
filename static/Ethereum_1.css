@@ -10,6 +10,8 @@
 .u-section-1-1 .u-text-1 {
   width: 605px;
   margin: 220px auto 0;
+  animation-duration: 1000ms;
+  min-height: 825px;
 }
 
 .u-section-1-1 .u-text-2 {
